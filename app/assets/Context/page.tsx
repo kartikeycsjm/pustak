@@ -1,14 +1,22 @@
 'use client'
-import { createContext, useContext, useState } from "react";
-const CrtContext = createContext<any>(undefined);
-export const AppWrapper = ({children}: Readonly<{children: React.ReactNode}>) => {
-    let [dark, setDark] = useState(false);
-    return (
-        <>
-            <CrtContext.Provider value={{dark,setDark}}>
-                {children}
-            </CrtContext.Provider>
-        </>
-    )
+
+import { createContext, useContext, useState, ReactNode } from "react";
+
+interface ContextProps {
+  dark: boolean;
+  setDark: React.Dispatch<React.SetStateAction<boolean>>;
 }
-export const UseCont=()=>useContext(CrtContext)
+
+const CrtContext = createContext<ContextProps | undefined>(undefined);
+
+export const AppWrapper = ({children}: {children: ReactNode}) => {
+    const [dark, setDark] = useState(false);
+
+    return (
+        <CrtContext.Provider value={{dark, setDark}}>
+            {children}
+        </CrtContext.Provider>
+    );
+}
+
+export const UseCont = () => useContext(CrtContext)
