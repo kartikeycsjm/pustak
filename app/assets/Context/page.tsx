@@ -15,4 +15,3 @@ export const AppWrapper = ({
         </>
     )
 }
-export const UseCont=()=>useContext(CrtContext)
