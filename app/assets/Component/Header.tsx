@@ -1,9 +1,14 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { UseCont } from '../Context/cont'
 const Header = () => {
     const {dark,setDark}=UseCont();
+    const toggle=()=>{
+        let newdark=!dark;
+        localStorage.setItem('dark',newdark+'')
+        setDark(newdark)
+    }
     return (
         <div className={`${dark?'bg-[#000640] text-blue-300':'bg-slate-400 text-blue-900'} flex w-full h-[70px] 
     items-center justify-between`}>
@@ -14,7 +19,7 @@ const Header = () => {
                 <Image className=' cursor-pointer'
                  src={'/icons/trolley.png'} width={35} height={30} alt='e'></Image>
                 <Image className=' cursor-pointer'
-                onClick={()=>setDark(!dark)}
+                onClick={toggle}
                  src={dark?'/icons/dark.png':'/icons/light.png'} width={25} height={25} alt='e'></Image>
             </div>
         </div>
