@@ -2,7 +2,7 @@
 import React from 'react'
 import Books from '@/app/assets/Component/Books'
 import Book from '@/app/assets/Component/Book'
-import { UseCont } from './assets/Context/page'
+import { UseCont } from './assets/Context/cont'
 const page = () => {
   const { dark } = UseCont()
   return (

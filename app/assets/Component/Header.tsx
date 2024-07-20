@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
-import { UseCont } from '../Context/page'
+import { UseCont } from '../Context/cont'
 const Header = () => {
     const {dark,setDark}=UseCont();
     return (
